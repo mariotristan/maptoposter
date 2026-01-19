@@ -20,6 +20,17 @@ Generate beautiful, minimalist map posters for any city in the world.
 | Australia    | Melbourne      | forest          | <img src="posters/melbourne_forest_20260108_181459.png" width="250"> |
 | UAE          | Dubai          | midnight_blue   | <img src="posters/dubai_midnight_blue_20260108_174920.png" width="250"> |
 
+## Features
+
+- 🌍 Generate maps for any city worldwide
+- 🎨 17 beautiful themes (noir, cyberpunk, blueprint, etc.)
+- 🚀 Smart caching - skips regeneration if poster already exists
+- 🎭 Road hierarchy with different colors/widths by type
+- 🌊 Water features and parks automatically included
+- 📐 Professional typography with Roboto fonts
+- ⚡ Optimized for Instagram/print (12:16 aspect ratio)
+- 🔧 Fully customizable themes via JSON files
+
 ## Installation
 
 ```bash
@@ -108,12 +119,24 @@ python create_map_poster.py --list-themes
 | `copper_patina` | Oxidized copper aesthetic |
 | `monochrome_blue` | Single blue color family |
 
-## Output
+## Output & Caching
 
 Posters are saved to `posters/` directory with format:
 ```
 {city}_{theme}_{YYYYMMDD_HHMMSS}.png
 ```
+
+**Smart Caching**: The script automatically detects existing posters and skips regeneration:
+```bash
+# First run - generates new poster
+python create_map_poster.py -c "Paris" -C "France" -t noir
+
+# Second run - skips generation
+📁 Poster already exists: posters/paris_noir_20260118_143022.png
+✓ Skipping generation (file already exists)
+```
+
+This saves time and API calls when running the same city/theme combination multiple times.
 
 ## Adding Custom Themes
 
@@ -172,6 +195,7 @@ Quick reference for contributors who want to extend or modify the script.
 | Function | Purpose | Modify when... |
 |----------|---------|----------------|
 | `get_coordinates()` | City → lat/lon via Nominatim | Switching geocoding provider |
+| `check_existing_poster()` | Detect existing posters to skip regeneration | Changing caching logic |
 | `create_poster()` | Main rendering pipeline | Adding new map layers |
 | `get_edge_colors_by_type()` | Road color by OSM highway tag | Changing road styling |
 | `get_edge_widths_by_type()` | Road width by importance | Adjusting line weights |
@@ -249,6 +273,7 @@ G = ox.graph_from_point(point, dist=dist, network_type='walk')   # pedestrian
 ### Performance Tips
 
 - Large `dist` values (>20km) = slow downloads + memory heavy
-- Cache coordinates locally to avoid Nominatim rate limits
+- **Cache benefits**: Repeated runs with same city/theme skip expensive API calls
 - Use `network_type='drive'` instead of `'all'` for faster renders
 - Reduce `dpi` from 300 to 150 for quick previews
+- Delete old posters from `posters/` if you want to force regeneration

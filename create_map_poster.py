@@ -36,6 +36,30 @@ def load_fonts():
 
 FONTS = load_fonts()
 
+def generate_base_filename(city, theme_name):
+    """
+    Generate base filename without timestamp for checking existing files.
+    """
+    city_slug = city.lower().replace(' ', '_')
+    return f"{city_slug}_{theme_name}"
+
+def check_existing_poster(city, theme_name):
+    """
+    Check if a poster already exists for the given city and theme.
+    Returns the path to the existing file if found, None otherwise.
+    """
+    if not os.path.exists(POSTERS_DIR):
+        return None
+    
+    base_filename = generate_base_filename(city, theme_name)
+    
+    # Look for any file that starts with the base filename
+    for file in os.listdir(POSTERS_DIR):
+        if file.startswith(base_filename) and file.endswith('.png'):
+            return os.path.join(POSTERS_DIR, file)
+    
+    return None
+
 def generate_output_filename(city, theme_name):
     """
     Generate unique output filename with city, theme, and datetime.
@@ -453,6 +477,16 @@ Examples:
     
     # Load theme
     THEME = load_theme(args.theme)
+    
+    # Check if poster already exists
+    existing_poster = check_existing_poster(args.city, args.theme)
+    if existing_poster:
+        print(f"\n📁 Poster already exists: {existing_poster}")
+        print("✓ Skipping generation (file already exists)")
+        print("\n" + "=" * 50)
+        print("✓ No generation needed - using existing poster!")
+        print("=" * 50)
+        os.sys.exit(0)
     
     # Get coordinates and generate poster
     try:
