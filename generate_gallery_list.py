@@ -34,23 +34,52 @@ def generate_posters_list():
     print(f"📊 Found {len(poster_files)} poster files")
     
     for poster_file in sorted(poster_files):
-        # Extract city name from filename
-        # Expected format: CityName_Country_theme.extension
+        # Extract city name from filename - handle Mexican cities properly
         filename_parts = poster_file.stem.split('_')
         
-        if len(filename_parts) >= 3:
-            city = filename_parts[0].replace('_', ' ')
-            country = filename_parts[1] if len(filename_parts) > 1 else 'Mexico'
-            theme = '_'.join(filename_parts[2:]) if len(filename_parts) > 2 else 'neon_cyberpunk'
+        # Map known Mexican cities from filename format
+        city_mapping = {
+            'mexico': 'Mexico City',
+            'guadalajara': 'Guadalajara',
+            'monterrey': 'Monterrey', 
+            'puebla': 'Puebla',
+            'tijuana': 'Tijuana',
+            'león': 'León',
+            'juárez': 'Juárez',
+            'torreón': 'Torreón',
+            'querétaro': 'Querétaro',
+            'nuevo': 'Nuevo Laredo'  # Handle nuevo_laredo case
+        }
+        
+        if len(filename_parts) >= 1:
+            city_key = filename_parts[0].lower()
+            if city_key in city_mapping:
+                city = city_mapping[city_key]
+            elif city_key == 'nuevo' and len(filename_parts) >= 2 and filename_parts[1] == 'laredo':
+                city = 'Nuevo Laredo'
+            else:
+                # Capitalize first letter for unknown cities
+                city = filename_parts[0].replace('_', ' ').title()
         else:
-            # Fallback parsing
-            city = poster_file.stem.replace('_', ' ')
-            country = 'Mexico'
+            city = poster_file.stem.replace('_', ' ').title()
+        
+        # Extract theme (look for known theme patterns)
+        theme = 'neon_cyberpunk'  # Default
+        filename_lower = poster_file.stem.lower()
+        if 'neon' in filename_lower and 'cyberpunk' in filename_lower:
             theme = 'neon_cyberpunk'
+        elif 'contrast' in filename_lower:
+            theme = 'contrast_zones'
+        elif 'noir' in filename_lower:
+            theme = 'noir'
+        elif 'blueprint' in filename_lower:
+            theme = 'blueprint'
+        elif 'forest' in filename_lower:
+            theme = 'forest'
         
         poster_info = {
             'city': city,
-            'country': country,
+            'country': 'Mexico',
             'filename': poster_file.name,
             'path': f"posters/{poster_file.name}",
             'theme': theme,

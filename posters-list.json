@@ -1,254 +1,110 @@
 [
   {
-    "city": "barcelona",
-    "country": "warm",
-    "filename": "barcelona_warm_beige_20260108_172924.png",
-    "path": "posters/barcelona_warm_beige_20260108_172924.png",
-    "theme": "beige_20260108_172924",
-    "isPopular": false,
-    "size": 7410199
-  },
-  {
-    "city": "chicago",
-    "country": "noir",
-    "filename": "chicago_noir_20260108_173313.png",
-    "path": "posters/chicago_noir_20260108_173313.png",
-    "theme": "20260108_173313",
-    "isPopular": false,
-    "size": 6086272
-  },
-  {
-    "city": "dubai",
-    "country": "midnight",
-    "filename": "dubai_midnight_blue_20260108_174920.png",
-    "path": "posters/dubai_midnight_blue_20260108_174920.png",
-    "theme": "blue_20260108_174920",
-    "isPopular": false,
-    "size": 9071725
-  },
-  {
-    "city": "guadalajara",
-    "country": "neon",
+    "city": "Guadalajara",
+    "country": "Mexico",
     "filename": "guadalajara_neon_cyberpunk_20260118_202903.png",
     "path": "posters/guadalajara_neon_cyberpunk_20260118_202903.png",
-    "theme": "cyberpunk_20260118_202903",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 9384314
   },
   {
-    "city": "juárez",
-    "country": "neon",
+    "city": "Juárez",
+    "country": "Mexico",
     "filename": "juárez_neon_cyberpunk_20260118_214103.png",
     "path": "posters/juárez_neon_cyberpunk_20260118_214103.png",
-    "theme": "cyberpunk_20260118_214103",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 8555848
   },
   {
-    "city": "león",
-    "country": "neon",
+    "city": "León",
+    "country": "Mexico",
     "filename": "león_neon_cyberpunk_20260118_210619.png",
     "path": "posters/león_neon_cyberpunk_20260118_210619.png",
-    "theme": "cyberpunk_20260118_210619",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 6624968
   },
   {
-    "city": "marrakech",
-    "country": "terracotta",
-    "filename": "marrakech_terracotta_20260108_180821.png",
-    "path": "posters/marrakech_terracotta_20260108_180821.png",
-    "theme": "20260108_180821",
-    "isPopular": false,
-    "size": 5225544
-  },
-  {
-    "city": "melbourne",
-    "country": "forest",
-    "filename": "melbourne_forest_20260108_181459.png",
-    "path": "posters/melbourne_forest_20260108_181459.png",
-    "theme": "20260108_181459",
-    "isPopular": false,
-    "size": 11568503
-  },
-  {
-    "city": "mexico",
-    "country": "city",
+    "city": "Mexico City",
+    "country": "Mexico",
     "filename": "mexico_city_neon_cyberpunk_20260118_201419.png",
     "path": "posters/mexico_city_neon_cyberpunk_20260118_201419.png",
-    "theme": "neon_cyberpunk_20260118_201419",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 14188383
   },
   {
-    "city": "monterrey",
-    "country": "contrast",
+    "city": "Monterrey",
+    "country": "Mexico",
     "filename": "monterrey_contrast_zones_20260118_200704.png",
     "path": "posters/monterrey_contrast_zones_20260118_200704.png",
-    "theme": "zones_20260118_200704",
-    "isPopular": false,
+    "theme": "contrast_zones",
+    "isPopular": true,
     "size": 7844428
   },
   {
-    "city": "monterrey",
-    "country": "neon",
+    "city": "Monterrey",
+    "country": "Mexico",
     "filename": "monterrey_neon_cyberpunk_20260118_200820.png",
     "path": "posters/monterrey_neon_cyberpunk_20260118_200820.png",
-    "theme": "cyberpunk_20260118_200820",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 10849961
   },
   {
-    "city": "monterrey",
-    "country": "neon",
-    "filename": "monterrey_neon_cyberpunk_20260118_203401.png",
-    "path": "posters/monterrey_neon_cyberpunk_20260118_203401.png",
-    "theme": "cyberpunk_20260118_203401",
-    "isPopular": false,
-    "size": 9355355
-  },
-  {
-    "city": "monterrey",
-    "country": "noir",
+    "city": "Monterrey",
+    "country": "Mexico",
     "filename": "monterrey_noir_20260118_193959.png",
     "path": "posters/monterrey_noir_20260118_193959.png",
-    "theme": "20260118_193959",
-    "isPopular": false,
+    "theme": "noir",
+    "isPopular": true,
     "size": 7255501
   },
   {
-    "city": "mumbai",
-    "country": "contrast",
-    "filename": "mumbai_contrast_zones_20260108_170325.png",
-    "path": "posters/mumbai_contrast_zones_20260108_170325.png",
-    "theme": "zones_20260108_170325",
-    "isPopular": false,
-    "size": 5494915
-  },
-  {
-    "city": "mumbai",
-    "country": "contrast",
-    "filename": "mumbai_contrast_zones_20260108_172010.png",
-    "path": "posters/mumbai_contrast_zones_20260108_172010.png",
-    "theme": "zones_20260108_172010",
-    "isPopular": false,
-    "size": 5494497
-  },
-  {
-    "city": "new",
-    "country": "york",
-    "filename": "new_york_noir_20260108_164217.png",
-    "path": "posters/new_york_noir_20260108_164217.png",
-    "theme": "noir_20260108_164217",
-    "isPopular": false,
-    "size": 9220130
-  },
-  {
-    "city": "new",
-    "country": "york",
-    "filename": "new_york_noir_20260108_172453.png",
-    "path": "posters/new_york_noir_20260108_172453.png",
-    "theme": "noir_20260108_172453",
-    "isPopular": false,
-    "size": 9219268
-  },
-  {
-    "city": "new",
-    "country": "york",
-    "filename": "new_york_noir_20260118_184848.png",
-    "path": "posters/new_york_noir_20260118_184848.png",
-    "theme": "noir_20260118_184848",
-    "isPopular": false,
-    "size": 9231655
-  },
-  {
-    "city": "nuevo",
-    "country": "laredo",
+    "city": "Nuevo Laredo",
+    "country": "Mexico",
     "filename": "nuevo_laredo_neon_cyberpunk_20260118_201109.png",
     "path": "posters/nuevo_laredo_neon_cyberpunk_20260118_201109.png",
-    "theme": "neon_cyberpunk_20260118_201109",
+    "theme": "neon_cyberpunk",
     "isPopular": false,
     "size": 4910075
   },
   {
-    "city": "puebla",
-    "country": "neon",
+    "city": "Puebla",
+    "country": "Mexico",
     "filename": "puebla_neon_cyberpunk_20260118_204013.png",
     "path": "posters/puebla_neon_cyberpunk_20260118_204013.png",
-    "theme": "cyberpunk_20260118_204013",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 6280599
   },
   {
-    "city": "querétaro",
-    "country": "neon",
+    "city": "Querétaro",
+    "country": "Mexico",
     "filename": "querétaro_neon_cyberpunk_20260119_152020.png",
     "path": "posters/querétaro_neon_cyberpunk_20260119_152020.png",
-    "theme": "cyberpunk_20260119_152020",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 3288520
   },
   {
-    "city": "san",
-    "country": "francisco",
-    "filename": "san_francisco_sunset_20260108_184122.png",
-    "path": "posters/san_francisco_sunset_20260108_184122.png",
-    "theme": "sunset_20260108_184122",
-    "isPopular": false,
-    "size": 4729693
-  },
-  {
-    "city": "singapore",
-    "country": "neon",
-    "filename": "singapore_neon_cyberpunk_20260108_184503.png",
-    "path": "posters/singapore_neon_cyberpunk_20260108_184503.png",
-    "theme": "cyberpunk_20260108_184503",
-    "isPopular": false,
-    "size": 11064692
-  },
-  {
-    "city": "tijuana",
-    "country": "neon",
+    "city": "Tijuana",
+    "country": "Mexico",
     "filename": "tijuana_neon_cyberpunk_20260118_204956.png",
     "path": "posters/tijuana_neon_cyberpunk_20260118_204956.png",
-    "theme": "cyberpunk_20260118_204956",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 9655563
   },
   {
-    "city": "tokyo",
-    "country": "japanese",
-    "filename": "tokyo_japanese_ink_20260108_165830.png",
-    "path": "posters/tokyo_japanese_ink_20260108_165830.png",
-    "theme": "ink_20260108_165830",
-    "isPopular": false,
-    "size": 16642752
-  },
-  {
-    "city": "torreón",
-    "country": "neon",
+    "city": "Torreón",
+    "country": "Mexico",
     "filename": "torreón_neon_cyberpunk_20260119_150713.png",
     "path": "posters/torreón_neon_cyberpunk_20260119_150713.png",
-    "theme": "cyberpunk_20260119_150713",
-    "isPopular": false,
+    "theme": "neon_cyberpunk",
+    "isPopular": true,
     "size": 5035696
-  },
-  {
-    "city": "venice",
-    "country": "blueprint",
-    "filename": "venice_blueprint_20260108_165527.png",
-    "path": "posters/venice_blueprint_20260108_165527.png",
-    "theme": "20260108_165527",
-    "isPopular": false,
-    "size": 3235899
-  },
-  {
-    "city": "washington",
-    "country": "blueprint",
-    "filename": "washington_blueprint_20260108_184314.png",
-    "path": "posters/washington_blueprint_20260108_184314.png",
-    "theme": "20260108_184314",
-    "isPopular": false,
-    "size": 11622905
   }
 ]
