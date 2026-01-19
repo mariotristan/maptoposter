@@ -139,27 +139,66 @@ def main():
     print()
     print("🇲🇽" + "=" * 56 + "🇲🇽")
     
-    # Generate gallery list for GitHub Pages
-    if success > 0:
-        print("🌐 Updating GitHub Pages gallery...")
+    # Generate gallery list for GitHub Pages (always run to ensure it's up to date)
+    print("🌐 Updating GitHub Pages gallery...")
+    try:
+        # Import and call the function directly for better error handling
+        from generate_gallery_list import generate_posters_list
+        posters_list = generate_posters_list()
+        
+        if posters_list and len(posters_list) > 0:
+            print("✅ Gallery list updated successfully!")
+            print(f"📊 Gallery now includes {len(posters_list)} posters")
+            
+            # Count themes
+            themes = set(poster.get('theme', 'unknown') for poster in posters_list)
+            theme_names = [poster.get('themeDisplay', poster.get('theme', 'Unknown')) for poster in posters_list]
+            unique_theme_names = sorted(set(theme_names))
+            print(f"🎨 Themes available: {', '.join(unique_theme_names)}")
+            
+            print("🌐 Your GitHub Pages gallery is ready to display all posters")
+            
+            if success > 0:
+                print(f"🆕 {success} new posters added in this session")
+        else:
+            print("⚠️  Gallery list update failed - no posters found")
+            
+    except ImportError as e:
+        print(f"⚠️  Could not import gallery generator: {e}")
+        print("🔄 Falling back to subprocess call...")
+        
+        # Fallback to subprocess with virtual environment python
         try:
-            result = subprocess.run([
-                "python", "generate_gallery_list.py"
-            ], capture_output=True, text=True)
+            venv_python = Path(__file__).parent / ".venv" / "bin" / "python"
+            if venv_python.exists():
+                result = subprocess.run([
+                    str(venv_python), "generate_gallery_list.py"
+                ], capture_output=True, text=True, cwd=Path(__file__).parent)
+            else:
+                result = subprocess.run([
+                    "python", "generate_gallery_list.py"
+                ], capture_output=True, text=True, cwd=Path(__file__).parent)
             
             if result.returncode == 0:
-                print("✅ Gallery list updated successfully!")
-                print("🌐 Your GitHub Pages gallery is ready to display new posters")
+                print("✅ Gallery list updated successfully via subprocess!")
+                print("🌐 Your GitHub Pages gallery is ready to display all posters")
+                if success > 0:
+                    print(f"🆕 {success} new posters added in this session")
             else:
-                print("⚠️  Gallery list update failed, but posters were generated successfully")
-        except Exception as e:
-            print(f"⚠️  Could not update gallery list: {e}")
-        
-        print()
-        print("🚀 Next steps:")
-        print("   1. Push your changes to GitHub")
-        print("   2. Enable GitHub Pages in repository settings")
-        print("   3. Your gallery will be live at: https://yourusername.github.io/maptoposter")
+                print("⚠️  Gallery list update failed:")
+                print(f"     Error: {result.stderr.strip()}")
+                
+        except Exception as fallback_error:
+            print(f"⚠️  Subprocess fallback also failed: {fallback_error}")
+            
+    except Exception as e:
+        print(f"⚠️  Could not update gallery list: {e}")
+    
+    print()
+    print("🚀 Next steps:")
+    print("   1. Push your changes to GitHub")
+    print("   2. Enable GitHub Pages in repository settings")
+    print("   3. Your gallery will be live at: https://yourusername.github.io/maptoposter")
     
     print()
     print("🇲🇽" + "=" * 56 + "🇲🇽")
