@@ -9,6 +9,7 @@ import sys
 import time
 from pathlib import Path
 from tqdm import tqdm
+import json
 
 def main():
     print("🇲🇽" + "=" * 56 + "🇲🇽")
@@ -134,6 +135,31 @@ def main():
         print("💪 Good effort! You may want to check the failed cities.")
     else:
         print("🔧 Some issues occurred. Check the errors above for troubleshooting.")
+    
+    print()
+    print("🇲🇽" + "=" * 56 + "🇲🇽")
+    
+    # Generate gallery list for GitHub Pages
+    if success > 0:
+        print("🌐 Updating GitHub Pages gallery...")
+        try:
+            result = subprocess.run([
+                "python", "generate_gallery_list.py"
+            ], capture_output=True, text=True)
+            
+            if result.returncode == 0:
+                print("✅ Gallery list updated successfully!")
+                print("🌐 Your GitHub Pages gallery is ready to display new posters")
+            else:
+                print("⚠️  Gallery list update failed, but posters were generated successfully")
+        except Exception as e:
+            print(f"⚠️  Could not update gallery list: {e}")
+        
+        print()
+        print("🚀 Next steps:")
+        print("   1. Push your changes to GitHub")
+        print("   2. Enable GitHub Pages in repository settings")
+        print("   3. Your gallery will be live at: https://yourusername.github.io/maptoposter")
     
     print()
     print("🇲🇽" + "=" * 56 + "🇲🇽")

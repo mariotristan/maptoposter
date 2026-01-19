@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mexico Map Poster Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid transparent;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-btn:hover {
+            background: rgba(102, 126, 234, 0.8);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-color: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .poster-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .poster-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+        }
+
+        .poster-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .poster-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .card-subtitle {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .theme-badge {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .download-btn {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .download-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 4rem;
+            color: white;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .no-posters {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .gallery-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🇲🇽 Mexico Map Poster Gallery</h1>
+        <p>Beautiful map posters of Mexican cities with cyberpunk neon styling</p>
+    </header>
+
+    <div class="gallery-container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Posters</button>
+            <button class="filter-btn" data-filter="recent">Recent</button>
+            <button class="filter-btn" data-filter="popular">Popular Cities</button>
+        </div>
+
+        <div id="loading" class="loading">
+            🎨 Loading beautiful posters...
+        </div>
+
+        <div id="gallery" class="gallery-grid" style="display: none;">
+            <!-- Posters will be loaded here dynamically -->
+        </div>
+
+        <div id="no-posters" class="no-posters" style="display: none;">
+            📁 No posters found. Generate some posters first!
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Generated with ❤️ using the Map Poster Generator</p>
+        <p>🎨 Theme: Neon Cyberpunk | 🌮 Country: Mexico</p>
+    </footer>
+
+    <script>
+        // Popular Mexican cities for highlighting
+        const popularCities = [
+            'Mexico City', 'Guadalajara', 'Monterrey', 'Puebla', 'Tijuana',
+            'León', 'Juárez', 'Torreón', 'Querétaro', 'San Luis Potosí'
+        ];
+
+        // Load and display posters
+        async function loadPosters() {
+            const gallery = document.getElementById('gallery');
+            const loading = document.getElementById('loading');
+            const noPosters = document.getElementById('no-posters');
+
+            try {
+                // Since we can't directly read files in a static site, we'll use a different approach
+                // This will work when the site is served from GitHub Pages
+                const response = await fetch('posters-list.json').catch(() => null);
+                
+                let posters = [];
+                
+                if (response && response.ok) {
+                    posters = await response.json();
+                } else {
+                    // Fallback: Try to find common poster files
+                    // You'll need to manually update this list or use the generate script to create posters-list.json
+                    posters = await generatePostersList();
+                }
+
+                loading.style.display = 'none';
+
+                if (posters.length === 0) {
+                    noPosters.style.display = 'block';
+                    return;
+                }
+
+                gallery.style.display = 'grid';
+                displayPosters(posters);
+                setupFilters(posters);
+
+            } catch (error) {
+                console.error('Error loading posters:', error);
+                loading.innerHTML = '❌ Error loading posters';
+            }
+        }
+
+        // Generate posters list from common files
+        async function generatePostersList() {
+            const commonCities = [
+                'Mexico City', 'Guadalajara', 'Monterrey', 'Puebla', 'Tijuana',
+                'León', 'Juárez', 'Torreón', 'Querétaro', 'San Luis Potosí',
+                'Mérida', 'Chihuahua', 'Saltillo', 'Aguascalientes', 'Hermosillo'
+            ];
+
+            const posters = [];
+            
+            for (const city of commonCities) {
+                const filename = `${city.replace(/\s+/g, '_')}_Mexico_neon_cyberpunk.png`;
+                const path = `posters/${filename}`;
+                
+                // Check if file exists
+                try {
+                    const response = await fetch(path, { method: 'HEAD' });
+                    if (response.ok) {
+                        posters.push({
+                            city: city,
+                            filename: filename,
+                            path: path,
+                            theme: 'neon_cyberpunk',
+                            isPopular: popularCities.includes(city)
+                        });
+                    }
+                } catch (e) {
+                    // File doesn't exist, skip
+                }
+            }
+
+            return posters;
+        }
+
+        function displayPosters(posters) {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = '';
+
+            posters.forEach(poster => {
+                const card = createPosterCard(poster);
+                gallery.appendChild(card);
+            });
+        }
+
+        function createPosterCard(poster) {
+            const card = document.createElement('div');
+            card.className = 'poster-card';
+            card.setAttribute('data-city', poster.city);
+            card.setAttribute('data-popular', poster.isPopular || false);
+
+            card.innerHTML = `
+                <img src="${poster.path}" alt="${poster.city} Map Poster" loading="lazy" 
+                     onerror="this.src='https://via.placeholder.com/350x300/667eea/white?text=${encodeURIComponent(poster.city)}'">
+                <div class="card-content">
+                    <h3 class="card-title">${poster.city}</h3>
+                    <p class="card-subtitle">🇲🇽 Mexico</p>
+                    <div class="card-stats">
+                        <span class="theme-badge">Neon Cyberpunk</span>
+                        <a href="${poster.path}" download="${poster.filename}" class="download-btn">
+                            📥 Download
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function setupFilters(posters) {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.poster-card');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    cards.forEach(card => {
+                        const isPopular = card.getAttribute('data-popular') === 'true';
+                        
+                        switch(filter) {
+                            case 'all':
+                                card.style.display = 'block';
+                                break;
+                            case 'popular':
+                                card.style.display = isPopular ? 'block' : 'none';
+                                break;
+                            case 'recent':
+                                // Show first 10 cards as "recent"
+                                const index = Array.from(cards).indexOf(card);
+                                card.style.display = index < 10 ? 'block' : 'none';
+                                break;
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', loadPosters);
+    </script>
+</body>
+</html>
