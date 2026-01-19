@@ -212,6 +212,9 @@
             <button class="filter-btn active" data-filter="all">All Posters</button>
             <button class="filter-btn" data-filter="recent">Recent</button>
             <button class="filter-btn" data-filter="popular">Popular Cities</button>
+            <button class="filter-btn" data-filter="neon_cyberpunk">Neon Cyberpunk</button>
+            <button class="filter-btn" data-filter="contrast_zones">Contrast Zones</button>
+            <button class="filter-btn" data-filter="noir">Noir</button>
         </div>
 
         <div id="loading" class="loading">
@@ -326,6 +329,13 @@
             card.className = 'poster-card';
             card.setAttribute('data-city', poster.city);
             card.setAttribute('data-popular', poster.isPopular || false);
+            card.setAttribute('data-theme', poster.theme);
+
+            // Use themeDisplay if available, otherwise format the theme
+            const themeDisplay = poster.themeDisplay || poster.theme.replace(/_/g, ' ')
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
 
             card.innerHTML = `
                 <img src="${poster.path}" alt="${poster.city} Map Poster" loading="lazy" 
@@ -334,7 +344,7 @@
                     <h3 class="card-title">${poster.city}</h3>
                     <p class="card-subtitle">🇲🇽 Mexico</p>
                     <div class="card-stats">
-                        <span class="theme-badge">Neon Cyberpunk</span>
+                        <span class="theme-badge">${themeDisplay}</span>
                         <a href="${poster.path}" download="${poster.filename}" class="download-btn">
                             📥 Download
                         </a>
@@ -359,6 +369,7 @@
 
                     cards.forEach(card => {
                         const isPopular = card.getAttribute('data-popular') === 'true';
+                        const cardTheme = card.getAttribute('data-theme');
                         
                         switch(filter) {
                             case 'all':
@@ -371,6 +382,10 @@
                                 // Show first 10 cards as "recent"
                                 const index = Array.from(cards).indexOf(card);
                                 card.style.display = index < 10 ? 'block' : 'none';
+                                break;
+                            default:
+                                // Theme filter
+                                card.style.display = cardTheme === filter ? 'block' : 'none';
                                 break;
                         }
                     });

@@ -5,6 +5,7 @@
     "filename": "guadalajara_neon_cyberpunk_20260118_202903.png",
     "path": "posters/guadalajara_neon_cyberpunk_20260118_202903.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 9384314
   },
@@ -14,6 +15,7 @@
     "filename": "juárez_neon_cyberpunk_20260118_214103.png",
     "path": "posters/juárez_neon_cyberpunk_20260118_214103.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 8555848
   },
@@ -23,6 +25,7 @@
     "filename": "león_neon_cyberpunk_20260118_210619.png",
     "path": "posters/león_neon_cyberpunk_20260118_210619.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 6624968
   },
@@ -32,6 +35,7 @@
     "filename": "mexico_city_neon_cyberpunk_20260118_201419.png",
     "path": "posters/mexico_city_neon_cyberpunk_20260118_201419.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 14188383
   },
@@ -41,6 +45,7 @@
     "filename": "monterrey_contrast_zones_20260118_200704.png",
     "path": "posters/monterrey_contrast_zones_20260118_200704.png",
     "theme": "contrast_zones",
+    "themeDisplay": "Contrast Zones",
     "isPopular": true,
     "size": 7844428
   },
@@ -50,6 +55,7 @@
     "filename": "monterrey_neon_cyberpunk_20260118_200820.png",
     "path": "posters/monterrey_neon_cyberpunk_20260118_200820.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 10849961
   },
@@ -59,6 +65,7 @@
     "filename": "monterrey_noir_20260118_193959.png",
     "path": "posters/monterrey_noir_20260118_193959.png",
     "theme": "noir",
+    "themeDisplay": "Noir",
     "isPopular": true,
     "size": 7255501
   },
@@ -68,6 +75,7 @@
     "filename": "nuevo_laredo_neon_cyberpunk_20260118_201109.png",
     "path": "posters/nuevo_laredo_neon_cyberpunk_20260118_201109.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": false,
     "size": 4910075
   },
@@ -77,6 +85,7 @@
     "filename": "puebla_neon_cyberpunk_20260118_204013.png",
     "path": "posters/puebla_neon_cyberpunk_20260118_204013.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 6280599
   },
@@ -86,6 +95,7 @@
     "filename": "querétaro_neon_cyberpunk_20260119_152020.png",
     "path": "posters/querétaro_neon_cyberpunk_20260119_152020.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 3288520
   },
@@ -95,6 +105,7 @@
     "filename": "tijuana_neon_cyberpunk_20260118_204956.png",
     "path": "posters/tijuana_neon_cyberpunk_20260118_204956.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 9655563
   },
@@ -104,6 +115,7 @@
     "filename": "torreón_neon_cyberpunk_20260119_150713.png",
     "path": "posters/torreón_neon_cyberpunk_20260119_150713.png",
     "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
     "size": 5035696
   }

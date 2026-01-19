@@ -63,19 +63,49 @@ def generate_posters_list():
         else:
             city = poster_file.stem.replace('_', ' ').title()
         
-        # Extract theme (look for known theme patterns)
-        theme = 'neon_cyberpunk'  # Default
-        filename_lower = poster_file.stem.lower()
-        if 'neon' in filename_lower and 'cyberpunk' in filename_lower:
-            theme = 'neon_cyberpunk'
-        elif 'contrast' in filename_lower:
-            theme = 'contrast_zones'
-        elif 'noir' in filename_lower:
-            theme = 'noir'
-        elif 'blueprint' in filename_lower:
-            theme = 'blueprint'
-        elif 'forest' in filename_lower:
-            theme = 'forest'
+        # Extract theme from filename (format: city_theme_timestamp.png)
+        import re
+        
+        # Remove timestamp from filename first
+        filename_no_ext = poster_file.stem
+        # Remove timestamp pattern (20YYMMDD_HHMMSS)
+        filename_clean = re.sub(r'_\d{8}_\d{6}$', '', filename_no_ext)
+        
+        # Default theme
+        theme = 'neon_cyberpunk'
+        
+        # Split into parts
+        parts = filename_clean.split('_')
+        
+        # Extract theme based on city pattern
+        if len(parts) >= 2:
+            if parts[0].lower() == 'mexico' and len(parts) >= 4:
+                # mexico_city_theme_parts
+                theme_parts = parts[2:]
+            elif parts[0].lower() == 'nuevo' and len(parts) >= 4:
+                # nuevo_laredo_theme_parts
+                theme_parts = parts[2:]
+            else:
+                # city_theme_parts
+                theme_parts = parts[1:]
+            
+            if theme_parts:
+                theme = '_'.join(theme_parts)
+        
+        # Map theme display names
+        theme_display_map = {
+            'neon_cyberpunk': 'Neon Cyberpunk',
+            'contrast_zones': 'Contrast Zones', 
+            'noir': 'Noir',
+            'blueprint': 'Blueprint',
+            'forest': 'Forest',
+            'ocean': 'Ocean',
+            'sunset': 'Sunset',
+            'autumn': 'Autumn',
+            'warm_beige': 'Warm Beige'
+        }
+        
+        theme_display = theme_display_map.get(theme, theme.replace('_', ' ').title())
         
         poster_info = {
             'city': city,
@@ -83,6 +113,7 @@ def generate_posters_list():
             'filename': poster_file.name,
             'path': f"posters/{poster_file.name}",
             'theme': theme,
+            'themeDisplay': theme_display,
             'isPopular': city in popular_cities,
             'size': poster_file.stat().st_size if poster_file.exists() else 0
         }
