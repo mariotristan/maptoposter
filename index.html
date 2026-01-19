@@ -92,6 +92,7 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            cursor: pointer;
         }
 
         .poster-card:hover {
@@ -108,6 +109,133 @@
 
         .poster-card:hover img {
             transform: scale(1.05);
+        }
+
+        /* Fullscreen Overlay Modal */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .modal-info {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .modal-subtitle {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .modal-theme {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .modal-download {
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-download:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .close-button:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
         }
 
         .card-content {
@@ -198,6 +326,29 @@
             .gallery-container {
                 padding: 0 1rem;
             }
+
+            .modal-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+            
+            .modal-info {
+                padding: 1rem;
+            }
+            
+            .modal-title {
+                font-size: 1.4rem;
+            }
+            
+            .modal-actions {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
+            
+            .modal-download {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -234,6 +385,24 @@
         <p>Generated with ❤️ using the Map Poster Generator</p>
         <p>🎨 Theme: Neon Cyberpunk | 🌮 Country: Mexico</p>
     </footer>
+
+    <!-- Fullscreen Overlay Modal -->
+    <div id="overlay" class="overlay">
+        <div class="modal-content">
+            <button class="close-button" id="closeBtn">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-info">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalSubtitle" class="modal-subtitle"></p>
+                <div class="modal-actions">
+                    <span id="modalTheme" class="modal-theme"></span>
+                    <a id="modalDownload" class="modal-download" href="" download="">
+                        📥 Download High Quality
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Popular Mexican cities for highlighting
@@ -345,12 +514,17 @@
                     <p class="card-subtitle">🇲🇽 Mexico</p>
                     <div class="card-stats">
                         <span class="theme-badge">${themeDisplay}</span>
-                        <a href="${poster.path}" download="${poster.filename}" class="download-btn">
+                        <a href="${poster.path}" download="${poster.filename}" class="download-btn" onclick="event.stopPropagation();">
                             📥 Download
                         </a>
                     </div>
                 </div>
             `;
+
+            // Add click handler to open overlay
+            card.addEventListener('click', () => {
+                openOverlay(poster);
+            });
 
             return card;
         }
@@ -393,8 +567,75 @@
             });
         }
 
+        // Overlay modal functions
+        function openOverlay(poster) {
+            const overlay = document.getElementById('overlay');
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalSubtitle = document.getElementById('modalSubtitle');
+            const modalTheme = document.getElementById('modalTheme');
+            const modalDownload = document.getElementById('modalDownload');
+
+            // Set modal content
+            modalImage.src = poster.path;
+            modalImage.alt = `${poster.city} Map Poster - Full Size`;
+            modalTitle.textContent = poster.city;
+            modalSubtitle.textContent = `🇲🇽 ${poster.country || 'Mexico'}`;
+            
+            const themeDisplay = poster.themeDisplay || poster.theme.replace(/_/g, ' ')
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+            modalTheme.textContent = themeDisplay;
+            
+            modalDownload.href = poster.path;
+            modalDownload.download = poster.filename;
+
+            // Show overlay
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Setup overlay event listeners
+        function setupOverlayListeners() {
+            const overlay = document.getElementById('overlay');
+            const closeBtn = document.getElementById('closeBtn');
+
+            // Close button
+            closeBtn.addEventListener('click', closeOverlay);
+
+            // Click outside modal to close
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    closeOverlay();
+                }
+            });
+
+            // Escape key to close
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                    closeOverlay();
+                }
+            });
+
+            // Prevent modal content clicks from closing overlay
+            const modalContent = overlay.querySelector('.modal-content');
+            modalContent.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+
         // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', loadPosters);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPosters();
+            setupOverlayListeners();
+        });
     </script>
 </body>
 </html>
