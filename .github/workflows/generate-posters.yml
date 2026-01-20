@@ -144,130 +144,25 @@ jobs:
           echo "changes_made=true" >> $GITHUB_OUTPUT
         fi
 
-    - name: 🌐 Trigger GitHub Pages Deployment
-      uses: actions/github-script@v7
+    - name: 📦 Upload GitHub Pages Artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        script: |
-          console.log('🌐 Triggering GitHub Pages deployment...');
-          
-          // First, check if GitHub Pages is enabled
-          try {
-            console.log('📊 Checking GitHub Pages configuration...');
-            const pagesInfo = await github.rest.repos.getPages({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            
-            console.log(`✅ GitHub Pages is enabled!`);
-            console.log(`📁 Source: ${pagesInfo.data.source.branch}/${pagesInfo.data.source.path || 'root'}`);
-            console.log(`🌐 URL: ${pagesInfo.data.html_url}`);
-            console.log(`📊 Status: ${pagesInfo.data.status}`);
-          } catch (error) {
-            console.log('❌ GitHub Pages is not enabled or configured!');
-            console.log(`🔧 Enable Pages at: https://github.com/${context.repo.owner}/${context.repo.repo}/settings/pages`);
-            throw new Error('GitHub Pages not enabled. Please enable it first.');
-          }
-          
-          // Try to trigger a Pages build
-          try {
-            const response = await github.rest.repos.requestPagesBuild({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            });
-            
-            console.log('✅ GitHub Pages build triggered successfully!');
-            console.log(`📊 Status: ${response.status}`);
-            return true;
-          } catch (error) {
-            console.log('⚠️ Could not trigger Pages build directly:', error.message);
-            console.log('📝 GitHub Pages should auto-rebuild from the push to main branch');
-            
-            // Don't fail the workflow - Pages will still auto-deploy
-            return false;
-          }
+        path: .
 
-    - name: ⏳ Wait for GitHub Pages Deployment
-      uses: actions/github-script@v7
-      continue-on-error: true  # Don't fail workflow if deployment checking fails
-      with:
-        script: |
-          console.log('⏳ Waiting for GitHub Pages deployment to complete...');
-          
-          const maxWaitTime = 3 * 60 * 1000; // Reduced to 3 minutes
-          const checkInterval = 10 * 1000;   // Check every 10 seconds
-          const startTime = Date.now();
-          
-          let deploymentFound = false;
-          
-          while (Date.now() - startTime < maxWaitTime) {
-            try {
-              // Get recent deployments for github-pages environment
-              const deployments = await github.rest.repos.listDeployments({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                environment: 'github-pages',
-                per_page: 5  // Check last 5 deployments
-              });
-              
-              if (deployments.data.length > 0) {
-                // Find the most recent deployment
-                const recentDeployment = deployments.data[0];
-                
-                // Check deployment status
-                const statuses = await github.rest.repos.listDeploymentStatuses({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  deployment_id: recentDeployment.id,
-                  per_page: 1
-                });
-                
-                if (statuses.data.length > 0) {
-                  const latestStatus = statuses.data[0];
-                  console.log(`📊 Deployment status: ${latestStatus.state}`);
-                  deploymentFound = true;
-                  
-                  if (latestStatus.state === 'success') {
-                    console.log('✅ GitHub Pages deployed successfully!');
-                    console.log(`🌐 Site URL: https://${context.repo.owner}.github.io/${context.repo.repo}`);
-                    break;
-                  } else if (latestStatus.state === 'failure' || latestStatus.state === 'error') {
-                    console.log('❌ GitHub Pages deployment failed');
-                    console.log(`🔍 Check details: https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
-                    break;
-                  } else if (latestStatus.state === 'in_progress' || latestStatus.state === 'pending') {
-                    console.log('⏳ Deployment in progress...');
-                  }
-                }
-              }
-              
-              // Wait before next check
-              await new Promise(resolve => setTimeout(resolve, checkInterval));
-              
-            } catch (error) {
-              console.log('⚠️ Error checking deployment status:', error.message);
-              console.log('🔗 Check deployment status manually at:');
-              console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
-              break;
-            }
-          }
-          
-          if (!deploymentFound) {
-            console.log('📝 No deployments found yet. GitHub Pages should deploy automatically.');
-          }
-          
-          console.log('🔗 Monitor deployment status at:');
-          console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
-          console.log('🌐 Your site will be available at:');
-          console.log(`   https://${context.repo.owner}.github.io/${context.repo.repo}`);
+    - name: 🚀 Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
     - name: 🎉 Summary
       run: |
         echo "🎉 Workflow completed successfully!"
         echo "📊 Total posters: $(ls posters/*.png 2>/dev/null | wc -l)"
         echo "🖼️ Total thumbnails: $(ls thumbnails/*.jpg 2>/dev/null | wc -l)"
-        echo "🌐 Gallery updated and ready!"
+        echo "🌐 Site deployed to GitHub Pages!"
         echo ""
         echo "🔗 Your gallery is available at:"
         echo "   https://originalankur.github.io/maptoposter"
         echo ""
         echo "📱 Changes should be live within a few minutes!"
+        echo "🔍 Check deployment status at:"
+        echo "   https://github.com/originalankur/maptoposter/deployments"
