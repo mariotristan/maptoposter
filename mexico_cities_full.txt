@@ -19,3 +19,17 @@ Morelia
 Toluca
 Apodaca
 Nuevo Laredo
+Chihuahua
+Tampico
+Veracruz
+Acapulco
+Cancún
+Durango
+Oaxaca
+Tuxtla Gutiérrez
+Villahermosa
+Campeche
+Colima
+Tepic
+Xalapa
+Pachuca
