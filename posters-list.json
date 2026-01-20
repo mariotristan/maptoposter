@@ -11,6 +11,17 @@
     "thumbnailPath": "thumbnails/aguascalientes_neon_cyberpunk_20260119_173451_thumb.jpg"
   },
   {
+    "city": "Apodaca",
+    "country": "Mexico",
+    "filename": "apodaca_neon_cyberpunk_20260120_141117.png",
+    "path": "posters/apodaca_neon_cyberpunk_20260120_141117.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 9949716,
+    "thumbnailPath": "thumbnails/apodaca_neon_cyberpunk_20260120_141117_thumb.jpg"
+  },
+  {
     "city": "Cuernavaca",
     "country": "Mexico",
     "filename": "cuernavaca_neon_cyberpunk_20260119_174447.png",
@@ -132,6 +143,17 @@
     "thumbnailPath": "thumbnails/monterrey_noir_20260118_193959_thumb.jpg"
   },
   {
+    "city": "Morelia",
+    "country": "Mexico",
+    "filename": "morelia_neon_cyberpunk_20260120_134607.png",
+    "path": "posters/morelia_neon_cyberpunk_20260120_134607.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 4700190,
+    "thumbnailPath": "thumbnails/morelia_neon_cyberpunk_20260120_134607_thumb.jpg"
+  },
+  {
     "city": "Mérida",
     "country": "Mexico",
     "filename": "mérida_neon_cyberpunk_20260119_172324.png",
@@ -207,6 +229,17 @@
     "isPopular": true,
     "size": 9655563,
     "thumbnailPath": "thumbnails/tijuana_neon_cyberpunk_20260118_204956_thumb.jpg"
+  },
+  {
+    "city": "Toluca",
+    "country": "Mexico",
+    "filename": "toluca_neon_cyberpunk_20260120_140040.png",
+    "path": "posters/toluca_neon_cyberpunk_20260120_140040.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 8713569,
+    "thumbnailPath": "thumbnails/toluca_neon_cyberpunk_20260120_140040_thumb.jpg"
   },
   {
     "city": "Torreón",
