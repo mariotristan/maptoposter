@@ -7,11 +7,19 @@ on:
       - '.github/workflows/generate-posters.yml'
   workflow_dispatch: # Allow manual triggering
 
+# Prevent multiple poster generation workflows from running simultaneously
+concurrency:
+  group: poster-generation
+  cancel-in-progress: true
+
 jobs:
   generate-posters:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed to push back to the repository
+      contents: write    # Needed to push back to the repository
+      pages: write       # Needed to trigger GitHub Pages builds
+      id-token: write    # Needed for OIDC authentication
+      deployments: read  # Needed to check deployment status
 
     steps:
     - name: 🚀 Checkout Repository
@@ -39,7 +47,15 @@ jobs:
           libfreetype6-dev \
           fonts-dejavu-core
 
-    - name: 📚 Install Python Dependencies
+    - name: � Cache pip dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: �📚 Install Python Dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
@@ -131,12 +147,12 @@ jobs:
     - name: 🌐 Trigger GitHub Pages Deployment
       if: steps.commit-changes.outputs.changes_made == 'true'
       uses: actions/github-script@v7
+      continue-on-error: true  # Don't fail the workflow if Pages API is unavailable
       with:
         script: |
           console.log('🌐 Triggering GitHub Pages deployment...');
           
           try {
-            // Trigger Pages build
             const response = await github.rest.repos.requestPagesBuild({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -144,42 +160,55 @@ jobs:
             
             console.log('✅ GitHub Pages build triggered successfully!');
             console.log(`📊 Status: ${response.status}`);
+            return true;
           } catch (error) {
             console.log('⚠️ Could not trigger Pages build directly:', error.message);
-            console.log('📝 Pages should auto-rebuild from the push to main branch');
+            console.log('📝 GitHub Pages will auto-rebuild from the push to main branch');
+            console.log('🔗 Manual deployment can be triggered at:');
+            console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/settings/environments`);
+            return false;
           }
 
     - name: ⏳ Wait for GitHub Pages Deployment
       if: steps.commit-changes.outputs.changes_made == 'true'
       uses: actions/github-script@v7
+      continue-on-error: true  # Don't fail workflow if deployment checking fails
       with:
         script: |
           console.log('⏳ Waiting for GitHub Pages deployment to complete...');
           
-          const maxWaitTime = 5 * 60 * 1000; // 5 minutes
-          const checkInterval = 15 * 1000; // 15 seconds
+          const maxWaitTime = 3 * 60 * 1000; // Reduced to 3 minutes
+          const checkInterval = 10 * 1000;   // Check every 10 seconds
           const startTime = Date.now();
+          
+          let deploymentFound = false;
           
           while (Date.now() - startTime < maxWaitTime) {
             try {
+              // Get recent deployments for github-pages environment
               const deployments = await github.rest.repos.listDeployments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 environment: 'github-pages',
-                per_page: 1
+                per_page: 5  // Check last 5 deployments
               });
               
               if (deployments.data.length > 0) {
-                const latestDeployment = deployments.data[0];
+                // Find the most recent deployment
+                const recentDeployment = deployments.data[0];
+                
+                // Check deployment status
                 const statuses = await github.rest.repos.listDeploymentStatuses({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
-                  deployment_id: latestDeployment.id
+                  deployment_id: recentDeployment.id,
+                  per_page: 1
                 });
                 
                 if (statuses.data.length > 0) {
                   const latestStatus = statuses.data[0];
                   console.log(`📊 Deployment status: ${latestStatus.state}`);
+                  deploymentFound = true;
                   
                   if (latestStatus.state === 'success') {
                     console.log('✅ GitHub Pages deployed successfully!');
@@ -187,22 +216,33 @@ jobs:
                     break;
                   } else if (latestStatus.state === 'failure' || latestStatus.state === 'error') {
                     console.log('❌ GitHub Pages deployment failed');
+                    console.log(`🔍 Check details: https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
                     break;
+                  } else if (latestStatus.state === 'in_progress' || latestStatus.state === 'pending') {
+                    console.log('⏳ Deployment in progress...');
                   }
                 }
               }
               
-              console.log('⏳ Still waiting for deployment...');
+              // Wait before next check
               await new Promise(resolve => setTimeout(resolve, checkInterval));
               
             } catch (error) {
               console.log('⚠️ Error checking deployment status:', error.message);
+              console.log('🔗 Check deployment status manually at:');
+              console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
               break;
             }
           }
           
-          console.log('🔗 You can check the deployment status at:');
-          console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`)
+          if (!deploymentFound) {
+            console.log('📝 No deployments found yet. GitHub Pages should deploy automatically.');
+          }
+          
+          console.log('🔗 Monitor deployment status at:');
+          console.log(`   https://github.com/${context.repo.owner}/${context.repo.repo}/deployments`);
+          console.log('🌐 Your site will be available at:');
+          console.log(`   https://${context.repo.owner}.github.io/${context.repo.repo}`);
 
     - name: 🎉 Summary
       run: |
