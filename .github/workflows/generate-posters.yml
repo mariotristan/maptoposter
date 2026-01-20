@@ -145,7 +145,6 @@ jobs:
         fi
 
     - name: 🌐 Trigger GitHub Pages Deployment
-      if: steps.commit-changes.outputs.changes_made == 'true'
       uses: actions/github-script@v7
       continue-on-error: true  # Don't fail the workflow if Pages API is unavailable
       with:
@@ -170,7 +169,6 @@ jobs:
           }
 
     - name: ⏳ Wait for GitHub Pages Deployment
-      if: steps.commit-changes.outputs.changes_made == 'true'
       uses: actions/github-script@v7
       continue-on-error: true  # Don't fail workflow if deployment checking fails
       with:
