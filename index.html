@@ -507,7 +507,7 @@
                 .join(' ');
 
             card.innerHTML = `
-                <img src="${poster.path}" alt="${poster.city} Map Poster" loading="lazy" 
+                <img src="${poster.thumbnailPath || poster.path}" alt="${poster.city} Map Poster" loading="lazy" 
                      onerror="this.src='https://via.placeholder.com/350x300/667eea/white?text=${encodeURIComponent(poster.city)}'">
                 <div class="card-content">
                     <h3 class="card-title">${poster.city}</h3>

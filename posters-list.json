@@ -1,5 +1,38 @@
 [
   {
+    "city": "Aguascalientes",
+    "country": "Mexico",
+    "filename": "aguascalientes_neon_cyberpunk_20260119_173451.png",
+    "path": "posters/aguascalientes_neon_cyberpunk_20260119_173451.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 5045385,
+    "thumbnailPath": "thumbnails/aguascalientes_neon_cyberpunk_20260119_173451_thumb.jpg"
+  },
+  {
+    "city": "Cuernavaca",
+    "country": "Mexico",
+    "filename": "cuernavaca_neon_cyberpunk_20260119_174447.png",
+    "path": "posters/cuernavaca_neon_cyberpunk_20260119_174447.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 5944192,
+    "thumbnailPath": "thumbnails/cuernavaca_neon_cyberpunk_20260119_174447_thumb.jpg"
+  },
+  {
+    "city": "Culiacán",
+    "country": "Mexico",
+    "filename": "culiacán_neon_cyberpunk_20260119_193318.png",
+    "path": "posters/culiacán_neon_cyberpunk_20260119_193318.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3820680,
+    "thumbnailPath": "thumbnails/culiacán_neon_cyberpunk_20260119_193318_thumb.jpg"
+  },
+  {
     "city": "Guadalajara",
     "country": "Mexico",
     "filename": "guadalajara_neon_cyberpunk_20260118_202903.png",
@@ -7,7 +40,19 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 9384314
+    "size": 9384314,
+    "thumbnailPath": "thumbnails/guadalajara_neon_cyberpunk_20260118_202903_thumb.jpg"
+  },
+  {
+    "city": "Hermosillo",
+    "country": "Mexico",
+    "filename": "hermosillo_neon_cyberpunk_20260119_201106.png",
+    "path": "posters/hermosillo_neon_cyberpunk_20260119_201106.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3659311,
+    "thumbnailPath": "thumbnails/hermosillo_neon_cyberpunk_20260119_201106_thumb.jpg"
   },
   {
     "city": "Juárez",
@@ -17,7 +62,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 8555848
+    "size": 8555848,
+    "thumbnailPath": "thumbnails/juárez_neon_cyberpunk_20260118_214103_thumb.jpg"
   },
   {
     "city": "León",
@@ -27,7 +73,19 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 6624968
+    "size": 6624968,
+    "thumbnailPath": "thumbnails/león_neon_cyberpunk_20260118_210619_thumb.jpg"
+  },
+  {
+    "city": "Mexicali",
+    "country": "Mexico",
+    "filename": "mexicali_neon_cyberpunk_20260119_172948.png",
+    "path": "posters/mexicali_neon_cyberpunk_20260119_172948.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3742052,
+    "thumbnailPath": "thumbnails/mexicali_neon_cyberpunk_20260119_172948_thumb.jpg"
   },
   {
     "city": "Mexico City",
@@ -37,7 +95,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 14188383
+    "size": 14188383,
+    "thumbnailPath": "thumbnails/mexico_city_neon_cyberpunk_20260118_201419_thumb.jpg"
   },
   {
     "city": "Monterrey",
@@ -47,7 +106,8 @@
     "theme": "contrast_zones",
     "themeDisplay": "Contrast Zones",
     "isPopular": true,
-    "size": 7844428
+    "size": 7844428,
+    "thumbnailPath": "thumbnails/monterrey_contrast_zones_20260118_200704_thumb.jpg"
   },
   {
     "city": "Monterrey",
@@ -57,7 +117,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 10849961
+    "size": 10849961,
+    "thumbnailPath": "thumbnails/monterrey_neon_cyberpunk_20260118_200820_thumb.jpg"
   },
   {
     "city": "Monterrey",
@@ -67,7 +128,19 @@
     "theme": "noir",
     "themeDisplay": "Noir",
     "isPopular": true,
-    "size": 7255501
+    "size": 7255501,
+    "thumbnailPath": "thumbnails/monterrey_noir_20260118_193959_thumb.jpg"
+  },
+  {
+    "city": "Mérida",
+    "country": "Mexico",
+    "filename": "mérida_neon_cyberpunk_20260119_172324.png",
+    "path": "posters/mérida_neon_cyberpunk_20260119_172324.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 5857272,
+    "thumbnailPath": "thumbnails/mérida_neon_cyberpunk_20260119_172324_thumb.jpg"
   },
   {
     "city": "Nuevo Laredo",
@@ -77,7 +150,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": false,
-    "size": 4910075
+    "size": 4910075,
+    "thumbnailPath": "thumbnails/nuevo_laredo_neon_cyberpunk_20260118_201109_thumb.jpg"
   },
   {
     "city": "Puebla",
@@ -87,7 +161,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 6280599
+    "size": 6280599,
+    "thumbnailPath": "thumbnails/puebla_neon_cyberpunk_20260118_204013_thumb.jpg"
   },
   {
     "city": "Querétaro",
@@ -97,7 +172,30 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 3288520
+    "size": 3288520,
+    "thumbnailPath": "thumbnails/querétaro_neon_cyberpunk_20260119_152020_thumb.jpg"
+  },
+  {
+    "city": "Saltillo",
+    "country": "Mexico",
+    "filename": "saltillo_neon_cyberpunk_20260119_175313.png",
+    "path": "posters/saltillo_neon_cyberpunk_20260119_175313.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3706765,
+    "thumbnailPath": "thumbnails/saltillo_neon_cyberpunk_20260119_175313_thumb.jpg"
+  },
+  {
+    "city": "San",
+    "country": "Mexico",
+    "filename": "san_luis_potosí_neon_cyberpunk_20260119_171644.png",
+    "path": "posters/san_luis_potosí_neon_cyberpunk_20260119_171644.png",
+    "theme": "luis_potosí_neon_cyberpunk",
+    "themeDisplay": "Luis Potosí Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1576160,
+    "thumbnailPath": "thumbnails/san_luis_potosí_neon_cyberpunk_20260119_171644_thumb.jpg"
   },
   {
     "city": "Tijuana",
@@ -107,7 +205,8 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 9655563
+    "size": 9655563,
+    "thumbnailPath": "thumbnails/tijuana_neon_cyberpunk_20260118_204956_thumb.jpg"
   },
   {
     "city": "Torreón",
@@ -117,6 +216,7 @@
     "theme": "neon_cyberpunk",
     "themeDisplay": "Neon Cyberpunk",
     "isPopular": true,
-    "size": 5035696
+    "size": 5035696,
+    "thumbnailPath": "thumbnails/torreón_neon_cyberpunk_20260119_150713_thumb.jpg"
   }
 ]
