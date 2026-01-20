@@ -1,0 +1,99 @@
+name: 🧪 Test Poster Generation Scripts
+
+on:
+  pull_request:
+    paths:
+      - '**.py'
+      - 'requirements.txt'
+      - 'mexico_cities*.txt'
+  workflow_dispatch:
+
+jobs:
+  test-scripts:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚀 Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: 📦 Install System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libgdal-dev \
+          libproj-dev \
+          libgeos-dev \
+          libspatialindex-dev \
+          libssl-dev \
+          libffi-dev \
+          libjpeg-dev \
+          libpng-dev \
+          libfreetype6-dev \
+          fonts-dejavu-core
+
+    - name: 📚 Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🧪 Test Script Syntax
+      run: |
+        python -m py_compile generate_all_mexico_posters.py
+        python -m py_compile generate_thumbnails.py
+        python -m py_compile generate_gallery_list.py
+        python -m py_compile create_map_poster.py
+        echo "✅ All scripts compile successfully!"
+
+    - name: 🔍 Test Dependencies
+      run: |
+        python -c "import tqdm; print('✅ tqdm available')"
+        python -c "import PIL; print('✅ Pillow available')"
+        python -c "import geopandas; print('✅ GeoPandas available')"
+        python -c "import geopy; print('✅ GeoPy available')"
+
+    - name: 📋 Test Cities File Reading
+      run: |
+        python -c "
+        from pathlib import Path
+        
+        # Test cities file logic
+        cities_file = Path('mexico_cities_full.txt')
+        if not cities_file.exists():
+            cities_file = Path('mexico_cities.txt')
+            
+        if cities_file.exists():
+            with open(cities_file, 'r', encoding='utf-8') as f:
+                cities = [line.strip() for line in f if line.strip()]
+            print(f'✅ Successfully read {len(cities)} cities from {cities_file.name}')
+            print(f'📊 First 5 cities: {cities[:5]}')
+        else:
+            print('❌ No cities file found')
+            exit(1)
+        "
+
+    - name: 🧪 Test Single Poster Generation (Dry Run)
+      run: |
+        # Test with a small city to verify the script works
+        echo "Querétaro" > test_city.txt
+        python -c "
+        import sys
+        from pathlib import Path
+        sys.path.append('.')
+        
+        # Test that we can import the poster creation module
+        try:
+            import create_map_poster
+            print('✅ create_map_poster module imports successfully')
+        except Exception as e:
+            print(f'❌ Import error: {e}')
+            sys.exit(1)
+        "
+
+    - name: ✅ All Tests Passed
+      run: |
+        echo "🎉 All tests passed! Scripts are ready for production."

@@ -22,11 +22,15 @@ def main():
     print()
     print("─" * 60)
     
-    # Check if mexico_cities.txt exists
-    cities_file = Path("mexico_cities.txt")
+    # Check for cities file - prioritize full list
+    cities_file = Path("mexico_cities_full.txt")
     if not cities_file.exists():
-        print("❌ Error: mexico_cities.txt file not found!")
-        sys.exit(1)
+        cities_file = Path("mexico_cities.txt")
+        if not cities_file.exists():
+            print("❌ Error: No cities file found! Please create mexico_cities.txt or mexico_cities_full.txt")
+            sys.exit(1)
+    
+    print(f"📋 Using cities file: {cities_file.name}")
     
     # Read all cities
     with open(cities_file, 'r', encoding='utf-8') as f:

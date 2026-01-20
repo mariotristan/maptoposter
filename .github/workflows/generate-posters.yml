@@ -1,0 +1,133 @@
+name: 🗺️ Generate Map Posters and Thumbnails
+
+on:
+  push:
+    paths:
+      - 'mexico_cities_full.txt'
+      - '.github/workflows/generate-posters.yml'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  generate-posters:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to push back to the repository
+
+    steps:
+    - name: 🚀 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetch full history for proper git operations
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11' # Use a stable version for CI
+
+    - name: 📦 Install System Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          libgdal-dev \
+          libproj-dev \
+          libgeos-dev \
+          libspatialindex-dev \
+          libssl-dev \
+          libffi-dev \
+          libjpeg-dev \
+          libpng-dev \
+          libfreetype6-dev \
+          fonts-dejavu-core
+
+    - name: 📚 Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 📊 Check Changes in Cities File
+      id: check-changes
+      run: |
+        if git diff --name-only HEAD~1 | grep -q "mexico_cities_full.txt"; then
+          echo "cities_changed=true" >> $GITHUB_OUTPUT
+          echo "✅ Cities file changed, will generate new posters"
+        else
+          echo "cities_changed=false" >> $GITHUB_OUTPUT
+          echo "⚪ No changes in cities file, running anyway (manual trigger or workflow change)"
+        fi
+
+    - name: 🗺️ Generate Map Posters
+      env:
+        PYTHONUNBUFFERED: 1
+      run: |
+        echo "🚀 Starting poster generation process..."
+        python generate_all_mexico_posters.py
+        echo "✅ Poster generation completed!"
+
+    - name: 🖼️ Generate Thumbnails
+      run: |
+        echo "🖼️ Generating optimized thumbnails..."
+        python generate_thumbnails.py
+        echo "✅ Thumbnail generation completed!"
+
+    - name: 📁 Check Generated Files
+      run: |
+        echo "📊 Poster files in posters/ directory:"
+        ls -la posters/ | wc -l
+        echo "🖼️ Thumbnail files in thumbnails/ directory:"
+        ls -la thumbnails/ | wc -l
+        echo "📄 Gallery metadata:"
+        if [ -f "posters-list.json" ]; then
+          echo "✅ posters-list.json exists"
+          wc -l posters-list.json
+        else
+          echo "❌ posters-list.json missing"
+        fi
+
+    - name: 🔍 Check Git Status
+      run: |
+        git status
+        git diff --name-only
+
+    - name: 📝 Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: 💾 Commit and Push Changes
+      run: |
+        # Add all generated files
+        git add posters/ thumbnails/ posters-list.json
+        
+        # Check if there are changes to commit
+        if git diff --staged --quiet; then
+          echo "⚪ No new files to commit"
+        else
+          echo "📝 Committing new posters and thumbnails..."
+          
+          # Count new files
+          NEW_POSTERS=$(git diff --staged --name-only | grep "^posters/" | wc -l)
+          NEW_THUMBNAILS=$(git diff --staged --name-only | grep "^thumbnails/" | wc -l)
+          
+          # Create commit message
+          COMMIT_MSG="🤖 Auto-generate posters and thumbnails
+
+          🗺️ Generated $NEW_POSTERS new poster(s)
+          🖼️ Generated $NEW_THUMBNAILS new thumbnail(s)
+          📄 Updated gallery metadata
+          
+          Triggered by: ${{ github.event_name }}
+          Commit: ${{ github.sha }}
+          Workflow: ${{ github.workflow }}"
+          
+          git commit -m "$COMMIT_MSG"
+          git push
+          
+          echo "✅ Successfully pushed new posters and thumbnails!"
+        fi
+
+    - name: 🎉 Summary
+      run: |
+        echo "🎉 Workflow completed successfully!"
+        echo "📊 Total posters: $(ls posters/*.png 2>/dev/null | wc -l)"
+        echo "🖼️ Total thumbnails: $(ls thumbnails/*.jpg 2>/dev/null | wc -l)"
+        echo "🌐 Gallery updated and ready!"
