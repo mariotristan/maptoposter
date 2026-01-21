@@ -33,3 +33,22 @@ Colima
 Tepic
 Xalapa
 Pachuca
+Tlaxcala
+Zacatecas
+La Paz
+Chetumal
+Chilpancingo
+Guadalupe
+Nezahualcóyotl
+Zapopan
+Naucalpan
+Tlalnepantla
+Mérida
+Ecatepec
+Apodaca
+General Escobedo
+Santa Catarina
+San Nicolás de los Garza
+García
+Carmen
+Playa del Carmen
