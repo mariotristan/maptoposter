@@ -110,6 +110,17 @@
     "thumbnailPath": "thumbnails/colima_neon_cyberpunk_20260120_184802_thumb.jpg"
   },
   {
+    "city": "Cozumel",
+    "country": "Mexico",
+    "filename": "cozumel_neon_cyberpunk_20260122_185438.png",
+    "path": "posters/cozumel_neon_cyberpunk_20260122_185438.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3054223,
+    "thumbnailPath": "thumbnails/cozumel_neon_cyberpunk_20260122_185438_thumb.jpg"
+  },
+  {
     "city": "Cuernavaca",
     "country": "Mexico",
     "filename": "cuernavaca_neon_cyberpunk_20260119_174447.png",
@@ -152,6 +163,17 @@
     "isPopular": false,
     "size": 16704908,
     "thumbnailPath": "thumbnails/ecatepec_neon_cyberpunk_20260121_033314_thumb.jpg"
+  },
+  {
+    "city": "Ensenada",
+    "country": "Mexico",
+    "filename": "ensenada_neon_cyberpunk_20260122_191926.png",
+    "path": "posters/ensenada_neon_cyberpunk_20260122_191926.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2719266,
+    "thumbnailPath": "thumbnails/ensenada_neon_cyberpunk_20260122_191926_thumb.jpg"
   },
   {
     "city": "García",
@@ -229,6 +251,28 @@
     "isPopular": true,
     "size": 6624968,
     "thumbnailPath": "thumbnails/león_neon_cyberpunk_20260118_210619_thumb.jpg"
+  },
+  {
+    "city": "Los",
+    "country": "Mexico",
+    "filename": "los_cabos_neon_cyberpunk_20260122_191353.png",
+    "path": "posters/los_cabos_neon_cyberpunk_20260122_191353.png",
+    "theme": "cabos_neon_cyberpunk",
+    "themeDisplay": "Cabos Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3879774,
+    "thumbnailPath": "thumbnails/los_cabos_neon_cyberpunk_20260122_191353_thumb.jpg"
+  },
+  {
+    "city": "Mazatlán",
+    "country": "Mexico",
+    "filename": "mazatlán_neon_cyberpunk_20260122_190910.png",
+    "path": "posters/mazatlán_neon_cyberpunk_20260122_190910.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2316483,
+    "thumbnailPath": "thumbnails/mazatlán_neon_cyberpunk_20260122_190910_thumb.jpg"
   },
   {
     "city": "Mexicali",
@@ -385,6 +429,17 @@
     "thumbnailPath": "thumbnails/puebla_neon_cyberpunk_20260118_204013_thumb.jpg"
   },
   {
+    "city": "Puerto",
+    "country": "Mexico",
+    "filename": "puerto_vallarta_neon_cyberpunk_20260122_190500.png",
+    "path": "posters/puerto_vallarta_neon_cyberpunk_20260122_190500.png",
+    "theme": "vallarta_neon_cyberpunk",
+    "themeDisplay": "Vallarta Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2399277,
+    "thumbnailPath": "thumbnails/puerto_vallarta_neon_cyberpunk_20260122_190500_thumb.jpg"
+  },
+  {
     "city": "Querétaro",
     "country": "Mexico",
     "filename": "querétaro_neon_cyberpunk_20260119_152020.png",
@@ -394,6 +449,17 @@
     "isPopular": true,
     "size": 3288520,
     "thumbnailPath": "thumbnails/querétaro_neon_cyberpunk_20260119_152020_thumb.jpg"
+  },
+  {
+    "city": "Rosarito",
+    "country": "Mexico",
+    "filename": "rosarito_neon_cyberpunk_20260122_192737.png",
+    "path": "posters/rosarito_neon_cyberpunk_20260122_192737.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 7503499,
+    "thumbnailPath": "thumbnails/rosarito_neon_cyberpunk_20260122_192737_thumb.jpg"
   },
   {
     "city": "Saltillo",
@@ -515,6 +581,17 @@
     "isPopular": true,
     "size": 5035696,
     "thumbnailPath": "thumbnails/torreón_neon_cyberpunk_20260119_150713_thumb.jpg"
+  },
+  {
+    "city": "Tulum",
+    "country": "Mexico",
+    "filename": "tulum_neon_cyberpunk_20260122_190130.png",
+    "path": "posters/tulum_neon_cyberpunk_20260122_190130.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 781049,
+    "thumbnailPath": "thumbnails/tulum_neon_cyberpunk_20260122_190130_thumb.jpg"
   },
   {
     "city": "Tuxtla",
