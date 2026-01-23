@@ -33,6 +33,17 @@
     "thumbnailPath": "thumbnails/apodaca_neon_cyberpunk_20260120_141117_thumb.jpg"
   },
   {
+    "city": "Ayutla",
+    "country": "Mexico",
+    "filename": "ayutla_neon_cyberpunk_20260123_010306.png",
+    "path": "posters/ayutla_neon_cyberpunk_20260123_010306.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1256695,
+    "thumbnailPath": "thumbnails/ayutla_neon_cyberpunk_20260123_010306_thumb.jpg"
+  },
+  {
     "city": "Campeche",
     "country": "Mexico",
     "filename": "campeche_neon_cyberpunk_20260120_183311.png",
@@ -86,6 +97,17 @@
     "isPopular": false,
     "size": 4363945,
     "thumbnailPath": "thumbnails/chihuahua_neon_cyberpunk_20260120_165550_thumb.jpg"
+  },
+  {
+    "city": "Chilapa",
+    "country": "Mexico",
+    "filename": "chilapa_neon_cyberpunk_20260123_010133.png",
+    "path": "posters/chilapa_neon_cyberpunk_20260123_010133.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2011640,
+    "thumbnailPath": "thumbnails/chilapa_neon_cyberpunk_20260123_010133_thumb.jpg"
   },
   {
     "city": "Chilpancingo",
@@ -220,6 +242,17 @@
     "thumbnailPath": "thumbnails/guadalupe_neon_cyberpunk_20260121_024221_thumb.jpg"
   },
   {
+    "city": "Guerrero",
+    "country": "Mexico",
+    "filename": "guerrero_negro_neon_cyberpunk_20260123_005349.png",
+    "path": "posters/guerrero_negro_neon_cyberpunk_20260123_005349.png",
+    "theme": "negro_neon_cyberpunk",
+    "themeDisplay": "Negro Neon Cyberpunk",
+    "isPopular": false,
+    "size": 780056,
+    "thumbnailPath": "thumbnails/guerrero_negro_neon_cyberpunk_20260123_005349_thumb.jpg"
+  },
+  {
     "city": "Hermosillo",
     "country": "Mexico",
     "filename": "hermosillo_neon_cyberpunk_20260119_201106.png",
@@ -229,6 +262,50 @@
     "isPopular": false,
     "size": 3659311,
     "thumbnailPath": "thumbnails/hermosillo_neon_cyberpunk_20260119_201106_thumb.jpg"
+  },
+  {
+    "city": "Huajuapan",
+    "country": "Mexico",
+    "filename": "huajuapan_neon_cyberpunk_20260123_010521.png",
+    "path": "posters/huajuapan_neon_cyberpunk_20260123_010521.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2324574,
+    "thumbnailPath": "thumbnails/huajuapan_neon_cyberpunk_20260123_010521_thumb.jpg"
+  },
+  {
+    "city": "Iguala",
+    "country": "Mexico",
+    "filename": "iguala_neon_cyberpunk_20260123_010026.png",
+    "path": "posters/iguala_neon_cyberpunk_20260123_010026.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3067476,
+    "thumbnailPath": "thumbnails/iguala_neon_cyberpunk_20260123_010026_thumb.jpg"
+  },
+  {
+    "city": "Ixtapa",
+    "country": "Mexico",
+    "filename": "ixtapa_neon_cyberpunk_20260123_005617.png",
+    "path": "posters/ixtapa_neon_cyberpunk_20260123_005617.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 4356597,
+    "thumbnailPath": "thumbnails/ixtapa_neon_cyberpunk_20260123_005617_thumb.jpg"
+  },
+  {
+    "city": "Juchitán",
+    "country": "Mexico",
+    "filename": "juchitán_neon_cyberpunk_20260123_010741.png",
+    "path": "posters/juchitán_neon_cyberpunk_20260123_010741.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2079307,
+    "thumbnailPath": "thumbnails/juchitán_neon_cyberpunk_20260123_010741_thumb.jpg"
   },
   {
     "city": "Juárez",
@@ -242,6 +319,17 @@
     "thumbnailPath": "thumbnails/juárez_neon_cyberpunk_20260118_214103_thumb.jpg"
   },
   {
+    "city": "La",
+    "country": "Mexico",
+    "filename": "la_paz_neon_cyberpunk_20260123_004735.png",
+    "path": "posters/la_paz_neon_cyberpunk_20260123_004735.png",
+    "theme": "paz_neon_cyberpunk",
+    "themeDisplay": "Paz Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1882381,
+    "thumbnailPath": "thumbnails/la_paz_neon_cyberpunk_20260123_004735_thumb.jpg"
+  },
+  {
     "city": "León",
     "country": "Mexico",
     "filename": "león_neon_cyberpunk_20260118_210619.png",
@@ -251,6 +339,17 @@
     "isPopular": true,
     "size": 6624968,
     "thumbnailPath": "thumbnails/león_neon_cyberpunk_20260118_210619_thumb.jpg"
+  },
+  {
+    "city": "Loreto",
+    "country": "Mexico",
+    "filename": "loreto_neon_cyberpunk_20260123_005518.png",
+    "path": "posters/loreto_neon_cyberpunk_20260123_005518.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 631539,
+    "thumbnailPath": "thumbnails/loreto_neon_cyberpunk_20260123_005518_thumb.jpg"
   },
   {
     "city": "Los",
@@ -396,6 +495,17 @@
     "thumbnailPath": "thumbnails/oaxaca_neon_cyberpunk_20260120_175422_thumb.jpg"
   },
   {
+    "city": "Ometepec",
+    "country": "Mexico",
+    "filename": "ometepec_neon_cyberpunk_20260123_010224.png",
+    "path": "posters/ometepec_neon_cyberpunk_20260123_010224.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2486128,
+    "thumbnailPath": "thumbnails/ometepec_neon_cyberpunk_20260123_010224_thumb.jpg"
+  },
+  {
     "city": "Pachuca",
     "country": "Mexico",
     "filename": "pachuca_neon_cyberpunk_20260120_193143.png",
@@ -407,6 +517,17 @@
     "thumbnailPath": "thumbnails/pachuca_neon_cyberpunk_20260120_193143_thumb.jpg"
   },
   {
+    "city": "Pinotepa",
+    "country": "Mexico",
+    "filename": "pinotepa_nacional_neon_cyberpunk_20260123_010705.png",
+    "path": "posters/pinotepa_nacional_neon_cyberpunk_20260123_010705.png",
+    "theme": "nacional_neon_cyberpunk",
+    "themeDisplay": "Nacional Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1587615,
+    "thumbnailPath": "thumbnails/pinotepa_nacional_neon_cyberpunk_20260123_010705_thumb.jpg"
+  },
+  {
     "city": "Playa",
     "country": "Mexico",
     "filename": "playa_del_carmen_neon_cyberpunk_20260121_040839.png",
@@ -416,6 +537,17 @@
     "isPopular": false,
     "size": 2120107,
     "thumbnailPath": "thumbnails/playa_del_carmen_neon_cyberpunk_20260121_040839_thumb.jpg"
+  },
+  {
+    "city": "Playas",
+    "country": "Mexico",
+    "filename": "playas_de_rosarito_neon_cyberpunk_20260123_005037.png",
+    "path": "posters/playas_de_rosarito_neon_cyberpunk_20260123_005037.png",
+    "theme": "de_rosarito_neon_cyberpunk",
+    "themeDisplay": "De Rosarito Neon Cyberpunk",
+    "isPopular": false,
+    "size": 7503825,
+    "thumbnailPath": "thumbnails/playas_de_rosarito_neon_cyberpunk_20260123_005037_thumb.jpg"
   },
   {
     "city": "Puebla",
@@ -462,6 +594,17 @@
     "thumbnailPath": "thumbnails/rosarito_neon_cyberpunk_20260122_192737_thumb.jpg"
   },
   {
+    "city": "Salina",
+    "country": "Mexico",
+    "filename": "salina_cruz_neon_cyberpunk_20260123_010819.png",
+    "path": "posters/salina_cruz_neon_cyberpunk_20260123_010819.png",
+    "theme": "cruz_neon_cyberpunk",
+    "themeDisplay": "Cruz Neon Cyberpunk",
+    "isPopular": false,
+    "size": 2230514,
+    "thumbnailPath": "thumbnails/salina_cruz_neon_cyberpunk_20260123_010819_thumb.jpg"
+  },
+  {
     "city": "Saltillo",
     "country": "Mexico",
     "filename": "saltillo_neon_cyberpunk_20260119_175313.png",
@@ -495,6 +638,17 @@
     "thumbnailPath": "thumbnails/san_nicolás_de_los_garza_neon_cyberpunk_20260121_035855_thumb.jpg"
   },
   {
+    "city": "San",
+    "country": "Mexico",
+    "filename": "san_quintín_neon_cyberpunk_20260123_005320.png",
+    "path": "posters/san_quintín_neon_cyberpunk_20260123_005320.png",
+    "theme": "quintín_neon_cyberpunk",
+    "themeDisplay": "Quintín Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1652892,
+    "thumbnailPath": "thumbnails/san_quintín_neon_cyberpunk_20260123_005320_thumb.jpg"
+  },
+  {
     "city": "Santa",
     "country": "Mexico",
     "filename": "santa_catarina_neon_cyberpunk_20260121_035452.png",
@@ -506,6 +660,17 @@
     "thumbnailPath": "thumbnails/santa_catarina_neon_cyberpunk_20260121_035452_thumb.jpg"
   },
   {
+    "city": "Santa",
+    "country": "Mexico",
+    "filename": "santa_rosalía_neon_cyberpunk_20260123_005423.png",
+    "path": "posters/santa_rosalía_neon_cyberpunk_20260123_005423.png",
+    "theme": "rosalía_neon_cyberpunk",
+    "themeDisplay": "Rosalía Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3858782,
+    "thumbnailPath": "thumbnails/santa_rosalía_neon_cyberpunk_20260123_005423_thumb.jpg"
+  },
+  {
     "city": "Tampico",
     "country": "Mexico",
     "filename": "tampico_neon_cyberpunk_20260120_171135.png",
@@ -515,6 +680,28 @@
     "isPopular": false,
     "size": 3503942,
     "thumbnailPath": "thumbnails/tampico_neon_cyberpunk_20260120_171135_thumb.jpg"
+  },
+  {
+    "city": "Taxco",
+    "country": "Mexico",
+    "filename": "taxco_neon_cyberpunk_20260123_005904.png",
+    "path": "posters/taxco_neon_cyberpunk_20260123_005904.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 3985997,
+    "thumbnailPath": "thumbnails/taxco_neon_cyberpunk_20260123_005904_thumb.jpg"
+  },
+  {
+    "city": "Tehuantepec",
+    "country": "Mexico",
+    "filename": "tehuantepec_neon_cyberpunk_20260123_010904.png",
+    "path": "posters/tehuantepec_neon_cyberpunk_20260123_010904.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1393625,
+    "thumbnailPath": "thumbnails/tehuantepec_neon_cyberpunk_20260123_010904_thumb.jpg"
   },
   {
     "city": "Tepic",
@@ -550,6 +737,17 @@
     "thumbnailPath": "thumbnails/tlalnepantla_neon_cyberpunk_20260121_032345_thumb.jpg"
   },
   {
+    "city": "Tlapa",
+    "country": "Mexico",
+    "filename": "tlapa_neon_cyberpunk_20260123_010437.png",
+    "path": "posters/tlapa_neon_cyberpunk_20260123_010437.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1773328,
+    "thumbnailPath": "thumbnails/tlapa_neon_cyberpunk_20260123_010437_thumb.jpg"
+  },
+  {
     "city": "Tlaxcala",
     "country": "Mexico",
     "filename": "tlaxcala_neon_cyberpunk_20260121_022352.png",
@@ -559,6 +757,17 @@
     "isPopular": false,
     "size": 7143721,
     "thumbnailPath": "thumbnails/tlaxcala_neon_cyberpunk_20260121_022352_thumb.jpg"
+  },
+  {
+    "city": "Todos",
+    "country": "Mexico",
+    "filename": "todos_santos_neon_cyberpunk_20260123_005549.png",
+    "path": "posters/todos_santos_neon_cyberpunk_20260123_005549.png",
+    "theme": "santos_neon_cyberpunk",
+    "themeDisplay": "Santos Neon Cyberpunk",
+    "isPopular": false,
+    "size": 845545,
+    "thumbnailPath": "thumbnails/todos_santos_neon_cyberpunk_20260123_005549_thumb.jpg"
   },
   {
     "city": "Toluca",
@@ -658,5 +867,16 @@
     "isPopular": false,
     "size": 9262382,
     "thumbnailPath": "thumbnails/zapopan_neon_cyberpunk_20260121_030042_thumb.jpg"
+  },
+  {
+    "city": "Zihuatanejo",
+    "country": "Mexico",
+    "filename": "zihuatanejo_neon_cyberpunk_20260123_005825.png",
+    "path": "posters/zihuatanejo_neon_cyberpunk_20260123_005825.png",
+    "theme": "neon_cyberpunk",
+    "themeDisplay": "Neon Cyberpunk",
+    "isPopular": false,
+    "size": 1692942,
+    "thumbnailPath": "thumbnails/zihuatanejo_neon_cyberpunk_20260123_005825_thumb.jpg"
   }
 ]
